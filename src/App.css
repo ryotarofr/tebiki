@@ -1,116 +1,191 @@
-.logo.vite:hover {
-  filter: drop-shadow(0 0 2em #747bff);
-}
-
-.logo.solid:hover {
-  filter: drop-shadow(0 0 2em #2f5d90);
-}
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  /* Coral semantic tokens */
+  --demo-coral-solid: #eb5e41;
+  --demo-coral-emphasized: #de5045;
+  --demo-coral-muted: #ffdbda;
+  --demo-coral-subtle: #ffe5e4;
+  --demo-coral-fg: #c9453b;
+  --demo-coral-contrast: white;
+  --demo-coral-focus-ring: #ffb2a8;
 
-  color: #0f0f0f;
-  background-color: #f6f6f6;
+  /* Neutral semantic tokens (Sand from park-ui) */
+  --demo-neutral-solid: #8d8d86;
+  --demo-neutral-emphasized: #82827c;
+  --demo-neutral-muted: #e2e1de;
+  --demo-neutral-subtle: #f1f0ef;
+  --demo-neutral-fg: #21201c;
+  --demo-neutral-fg-muted: #61605b;
+  --demo-neutral-contrast: white;
+  --demo-neutral-focus-ring: #bcbbb5;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  /* Border semantic tokens */
+  --demo-border: #e9e8e6;
+  --demo-border-muted: #f9f9f8;
+  --demo-border-emphasized: #dad9d6;
+
+  /* Error semantic tokens */
+  --demo-error: #ff4444;
+
+  /* Popover */
+  --demo-bg-popover: white;
+  --demo-bg-thumb: white;
+  --demo-bg-checkbox: white;
+
+  /* Z-index tokens */
+  --demo-popover-z-index: 50;
+
+  /* Shadow tokens (soft, modern shadows) */
+  --demo-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --demo-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08);
+  --demo-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.06);
+  --demo-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+  --demo-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.08), 0 8px 10px -6px rgb(0 0 0 / 0.04);
+  --demo-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+
+  /* JSON tree view */
+  --demo-json-string: #c9453b;
+  --demo-json-number: #0550ae;
+  --demo-json-boolean: #b35900;
+  --demo-json-key: #116329;
+  --demo-json-accent: #6f42c1;
 }
 
-.container {
-  margin: 0;
-  padding-top: 10vh;
+.dark {
+  /* Coral dark mode */
+  --demo-coral-solid: #eb5e41;
+  --demo-coral-emphasized: #ef6b4e;
+  --demo-coral-muted: #722b25;
+  --demo-coral-subtle: #55221e;
+  --demo-coral-fg: #f47a5c;
+  --demo-coral-contrast: white;
+  --demo-coral-focus-ring: #e2503f;
+
+  /* Neutral dark mode (Sand from park-ui) */
+  --demo-neutral-solid: #6f6d66;
+  --demo-neutral-emphasized: #7c7b74;
+  --demo-neutral-muted: #31312e;
+  --demo-neutral-subtle: #222221;
+  --demo-neutral-fg: #eeeeec;
+  --demo-neutral-fg-muted: #a9a9a3;
+  --demo-neutral-contrast: white;
+  --demo-neutral-focus-ring: #62605b;
+
+  /* Border dark mode */
+  --demo-border: #2a2a28;
+  --demo-border-muted: #191918;
+  --demo-border-emphasized: #3b3a37;
+
+  /* Error dark mode */
+  --demo-error: #ff4444;
+
+  /* Popover dark mode */
+  --demo-bg-popover: #111110;
+  --demo-bg-thumb: #111110;
+  --demo-bg-checkbox: #111110;
+
+  /* Shadow tokens dark mode (slightly higher opacity for visibility) */
+  --demo-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.15);
+  --demo-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.2), 0 1px 2px -1px rgb(0 0 0 / 0.15);
+  --demo-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.2), 0 2px 4px -2px rgb(0 0 0 / 0.12);
+  --demo-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --demo-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.25), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --demo-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.35);
+
+  /* JSON tree view dark mode */
+  --demo-json-string: #ff7b72;
+  --demo-json-number: #79c0ff;
+  --demo-json-boolean: #ffa657;
+  --demo-json-key: #7ee787;
+  --demo-json-accent: #d2a8ff;
+}
+
+
+/* Utility classes for example layouts */
+
+[hidden] {
+  display: none !important;
+}
+
+output {
+  display: flex;
+  max-width: 32rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  border: 1px solid var(--demo-border-emphasized);
+  padding: 0.5rem 0.625rem;
+  margin-bottom: 0.5rem;
+  font-family: monospace;
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 0.725rem;
+
+  .title {
+    font-weight: 600;
+  }
+}
+
+.stack {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: 0.75s;
-}
-
-.logo.tauri:hover {
-  filter: drop-shadow(0 0 2em #24c8db);
-}
-
-.row {
+.vstack {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+.hstack {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
 }
 
-a:hover {
-  color: #535bf2;
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  position: relative;
+  margin: 0;
+  background: white;
 }
 
-h1 {
-  text-align: center;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
 }
 
-input,
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  color: #0f0f0f;
-  background-color: #ffffff;
-  transition: border-color 0.25s;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+#root,
+#storybook-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0;
+  isolation: isolate;
 }
 
-button {
-  cursor: pointer;
+/* App Layout */
+.app-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
 }
 
-button:hover {
-  border-color: #396cd8;
-}
-button:active {
-  border-color: #396cd8;
-  background-color: #e8e8e8;
+.app-layout.sidebar-right {
+  flex-direction: row-reverse;
 }
 
-input,
-button {
-  outline: none;
-}
-
-#greet-input {
-  margin-right: 5px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: #f6f6f6;
-    background-color: #2f2f2f;
-  }
-
-  a:hover {
-    color: #24c8db;
-  }
-
-  input,
-  button {
-    color: #ffffff;
-    background-color: #0f0f0f98;
-  }
-  button:active {
-    background-color: #0f0f0f69;
-  }
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
 }

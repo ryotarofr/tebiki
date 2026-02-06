@@ -19,7 +19,12 @@
       "Bash(bunx biome lint:*)",
       "WebFetch(domain:www.npmjs.com)",
       "WebFetch(domain:ark-ui.com)",
-      "Bash(bun run:*)"
+      "Bash(bun run:*)",
+      "Bash(tree:*)",
+      "Bash(timeout 5 npm run dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(taskkill:*)",
+      "Bash(npm install:*)"
     ]
   }
 }
