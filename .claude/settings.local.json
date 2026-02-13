@@ -24,7 +24,16 @@
       "Bash(timeout 5 npm run dev:*)",
       "Bash(npm run build:*)",
       "Bash(taskkill:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(npx vite build:*)",
+      "Bash(node:*)",
+      "Bash(npx biome:*)",
+      "WebSearch",
+      "Bash(cargo check:*)",
+      "WebFetch(domain:v2.tauri.app)",
+      "Bash(git checkout:*)",
+      "Bash(dir:*)",
+      "Bash(where:*)"
     ]
   }
 }
